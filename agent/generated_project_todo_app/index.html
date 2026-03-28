@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ColorfulTodo</title>
+    <link rel="stylesheet" href="styles.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+    <div class="todo-app">
+        <h1>ColorfulTodo</h1>
+        <section class="input-section">
+            <input id="new-task-input" type="text" placeholder="What needs to be done?" autocomplete="off">
+            <button id="add-task-btn">Add</button>
+        </section>
+        <ul id="task-list" class="task-list"></ul>
+        <div class="filter-bar">
+            <button class="filter-btn" data-filter="all">All</button>
+            <button class="filter-btn" data-filter="active">Active</button>
+            <button class="filter-btn" data-filter="completed">Completed</button>
+        </div>
+    </div>
+
+    <template id="task-item-template">
+        <li class="task-item">
+            <input type="checkbox" class="task-checkbox">
+            <label class="task-label"></label>
+            <input type="text" class="edit-input" hidden>
+            <button class="edit-btn">Edit</button>
+            <button class="delete-btn">Delete</button>
+        </li>
+    </template>
+</body>
+</html>

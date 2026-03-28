@@ -1,0 +1,168 @@
+/*
+ * Calculator stylesheet – responsive and themed.
+ * All class names match those used in index.html.
+ */
+
+/* ------------------------------------------------------------
+   Root variables – central place for colors, spacing, fonts.
+   ------------------------------------------------------------ */
+:root {
+  /* Colors */
+  --color-bg: #f5f5f5;
+  --color-panel: #ffffff;
+  --color-display-bg: #222222;
+  --color-display-text: #ffffff;
+  --color-digit-bg: #e0e0e0;
+  --color-digit-text: #000000;
+  --color-operator-bg: #ff9500;
+  --color-operator-text: #ffffff;
+  --color-clear-bg: #d9534f;
+  --color-clear-text: #ffffff;
+  --color-backspace-bg: #6c757d;
+  --color-backspace-text: #ffffff;
+  --color-equals-bg: #28a745;
+  --color-equals-text: #ffffff;
+
+  /* Font sizes */
+  --font-size-display: 2rem;
+  --font-size-btn: 1.25rem;
+
+  /* Spacing */
+  --spacing-panel: 1.5rem;
+  --spacing-btn: 0.5rem;
+  --gap-keypad: 0.5rem;
+}
+
+/* ------------------------------------------------------------
+   Global resets / base styles
+   ------------------------------------------------------------ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  background: var(--color-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+/* ------------------------------------------------------------
+   Calculator container
+   ------------------------------------------------------------ */
+.calculator {
+  background: var(--color-panel);
+  max-width: 400px;
+  width: 100%;
+  padding: var(--spacing-panel);
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-keypad);
+}
+
+/* ------------------------------------------------------------
+   Display area – shows the current expression / result
+   ------------------------------------------------------------ */
+.display {
+  background: var(--color-display-bg);
+  color: var(--color-display-text);
+  font-size: var(--font-size-display);
+  text-align: right;
+  padding: var(--spacing-btn);
+  border-radius: 0.5rem;
+  min-height: 3rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+/* ------------------------------------------------------------
+   Keypad – grid layout for the buttons
+   ------------------------------------------------------------ */
+.keypad {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: var(--gap-keypad);
+}
+
+/* ------------------------------------------------------------
+   Base button style
+   ------------------------------------------------------------ */
+.btn {
+  font-size: var(--font-size-btn);
+  padding: var(--spacing-btn);
+  border: none;
+  border-radius: 0.4rem;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  user-select: none;
+}
+
+/* Digit buttons */
+.btn.digit,
+.btn.decimal {
+  background: var(--color-digit-bg);
+  color: var(--color-digit-text);
+}
+
+/* Operator buttons (+, -, *, /) */
+.btn.operator {
+  background: var(--color-operator-bg);
+  color: var(--color-operator-text);
+}
+
+/* Clear button */
+.btn.clear {
+  background: var(--color-clear-bg);
+  color: var(--color-clear-text);
+}
+
+/* Backspace button */
+.btn.backspace {
+  background: var(--color-backspace-bg);
+  color: var(--color-backspace-text);
+}
+
+/* Equals button – spans full width via inline style in HTML */
+.btn.equals {
+  background: var(--color-equals-bg);
+  color: var(--color-equals-text);
+}
+
+/* Hover / focus states */
+.btn:hover,
+.btn:focus {
+  filter: brightness(0.9);
+  outline: none;
+}
+
+/* Active state – used by JS for visual feedback */
+.btn.active {
+  transform: translateY(2px);
+  filter: brightness(0.8);
+}
+
+/* ------------------------------------------------------------
+   Responsive adjustments for small screens
+   ------------------------------------------------------------ */
+@media (max-width: 600px) {
+  .calculator {
+    padding: 1rem;
+  }
+
+  .display {
+    font-size: 1.5rem;
+    padding: 0.4rem;
+  }
+
+  .btn {
+    font-size: 1rem;
+    padding: 0.4rem;
+  }
+}
