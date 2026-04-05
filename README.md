@@ -1,4 +1,4 @@
-# App-Builder
+# AI App Builder using LangGraph and Tool-Augmented Code Generation
 
 An **AI-powered application generator** built with **LangGraph**, **LangChain**, and **ChatGroq**.
 
